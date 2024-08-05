@@ -1,4 +1,4 @@
-export function formatFriendlyDate(dateString: string): string {
+export const formatFriendlyDate = (dateString: string): string => {
 	const date = new Date(dateString);
 
 	const options: Intl.DateTimeFormatOptions = {
@@ -11,9 +11,9 @@ export function formatFriendlyDate(dateString: string): string {
 	};
 
 	return new Intl.DateTimeFormat('en-US', options).format(date);
-}
+};
 
-export function timeSince(dateString: string): string {
+export const timeSince = (dateString: string): string => {
 	const date = new Date(dateString);
 	const now = new Date();
 	const seconds = Math.floor((now.getTime() - date.getTime()) / 1000);
@@ -48,4 +48,4 @@ export function timeSince(dateString: string): string {
 		const years = Math.floor(seconds / intervals.year);
 		return `${years} year${years !== 1 ? 's' : ''} ago`;
 	}
-}
+};

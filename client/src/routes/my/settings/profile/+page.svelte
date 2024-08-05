@@ -62,13 +62,10 @@
 		enctype="multipart/form-data"
 		use:enhance={submitUpdateProfile}
 	>
-		<div class="text-2xl">Update Profile</div>
+		<h1 class="text-2xl">Update Profile</h1>
 		<div class="divider" />
 		<div class="form-control w-full max-w-lg">
-			<!-- <label for="avatar" class="label  pb-1"> -->
-			<!-- <span class="label-text">Profile Picture</span> -->
-			<!-- </label> -->
-			<label for="avatar" class="avatar mb-5 w-32 rounded-full hover:cursor-pointer">
+			<label for="avatar" class="avatar relative mb-5 w-32 rounded-full hover:cursor-pointer">
 				<label for="avatar" class="absolute -bottom-0.5 -right-0.5 z-20 hover:cursor-pointer">
 					<span class="btn btn-circle btn-sm btn-secondary">
 						{#if data.user?.avatar}
@@ -121,14 +118,6 @@
 			disabled={loading}
 			errors={form?.errors?.name}
 			placeholder="Name"
-		/>
-
-		<Input
-			id="job_title"
-			value={form?.data?.job_title ?? data?.user?.job_title}
-			disabled={loading}
-			errors={form?.errors?.job_title}
-			placeholder="Title"
 		/>
 
 		<div class="w-full max-w-lg pt-3">

@@ -22,12 +22,12 @@
 	}}
 >
 	<div class="mb-2">
-		<h1 class="text-7xl">register</h1>
+		<h1 class="text-2xl">Register</h1>
 		<p class=" pt-2">
-			Or <a href="/auth/login" class="text-primary underline">login</a> if you have an account.
+			Or <a href="/auth/login" class="text-primary underline">login</a> if you already have an account
 		</p>
 	</div>
-	<div class="form-control mb-4 gap-0">
+	<div class="form-control mb-4 space-y-4">
 		<Input
 			type="email"
 			id="email"
@@ -54,20 +54,13 @@
 			placeholder={'Confirm Password'}
 		/>
 
-		<div class="alert border-primary mb-2 flex border text-sm">
-			<Icon icon="material-symbols:encrypted" class="text-primary h-10 w-10" />
-			<div class="text-left">
-				Your password will be encrypted for your safety, it will not be readable by anyone.
-			</div>
-		</div>
-
-		<button class="btn btn-primary group/registerButton">
+		<button class="btn-primary">
 			{#if loading}
 				<span class="loading loading-spinner loading-md"></span>
 			{:else}
-				register <Icon
+				Register <Icon
 					icon="mdi-account-plus"
-					class="h-5 w-5 transition-all duration-300 md:group-hover/registerButton:translate-x-1"
+					class="h-5 w-5 ml-2 transition-all duration-300 md:group-hover/registerButton:translate-x-1"
 				/>
 			{/if}
 		</button>

@@ -8,19 +8,29 @@
 	export let errors: any;
 </script>
 
-<div class="form-control mb-2 w-full">
-	<input
-		class={type === 'file'
-			? 'file-input file-input-bordered w-full'
-			: 'input input-bordered w-full'}
-		{type}
-		{placeholder}
-		{required}
-		{disabled}
-		{id}
-		name={id}
-		{value}
-	/>
+<div>
+	<div class="flex justify-between">
+		<label for={id} class="block text-sm font-medium leading-6 text-gray-900">{placeholder}</label>
+		{#if required}
+			<span class="text-sm leading-6 text-gray-500" id="{id}-required">Required</span>
+		{/if}
+	</div>
+
+	<div class="mt-0.5">
+		<input
+			{type}
+			name={id}
+			{id}
+			class="{type === 'file'
+				? 'file-input file-input-bordered w-full'
+				: 'input input-bordered w-full'} px-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+			{placeholder}
+			{disabled}
+			{value}
+			aria-describedby="{id}-optional"
+		/>
+	</div>
+
 	{#if errors}
 		{#each errors as error}
 			<label for={id} class="label py-0 pt-1">

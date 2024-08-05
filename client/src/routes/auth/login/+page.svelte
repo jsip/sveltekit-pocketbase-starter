@@ -24,13 +24,13 @@
 	}}
 >
 	<div class="mb-2">
-		<h1 class="text-7xl">login</h1>
+		<h1 class="text-2xl">Login</h1>
 		<p class="pt-2">
-			Or <a href="/auth/register" class="text-primary underline">register</a> to create an account.
+			Or <a href="/auth/register" class="text-primary underline">register</a> to create an account
 		</p>
 	</div>
 
-	<div class="form-control mb-4 gap-0">
+	<div class="form-control mb-4 space-y-4">
 		<Input
 			type="email"
 			id="email"
@@ -47,18 +47,18 @@
 			placeholder={'Password'}
 		/>
 		<div class="w-full max-w-lg">
-			<a href="/auth/reset" class=" text-primary text-sm hover:cursor-pointer hover:underline">
+			<a href="/auth/reset" class="text-primary text-sm hover:cursor-pointer hover:underline">
 				Forgot Password?</a
 			>
 		</div>
 
-		<button class="btn btn-primary group/loginButton mt-2">
+		<button class="btn-primary">
 			{#if loading}
 				<span class="loading loading-spinner loading-md"></span>
 			{:else}
-				login <Icon
+				Login <Icon
 					icon="mdi-login"
-					class="h-5 w-5 transition-all duration-300 md:group-hover/loginButton:translate-x-1"
+					class="h-5 w-5 ml-2 transition-all duration-300 md:group-hover/loginButton:translate-x-1"
 				/>
 			{/if}
 		</button>
