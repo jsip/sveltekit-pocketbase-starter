@@ -6,7 +6,7 @@
 <div class="flex h-full w-full flex-col">
 	<div class="w-full">
 		<form action="?/updatePassword" method="POST" class="flex w-full flex-col space-y-2">
-			<h1 class="text-2xl">Change Password</h1>
+			<h1 class="text-lg font-semibold leading-6 text-gray-900">Update Password</h1>
 			<a href="/auth/reset" class="text-primary hover:cursor-point text-sm hover:underline">
 				I forgot my password</a
 			>

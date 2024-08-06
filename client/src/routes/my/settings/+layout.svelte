@@ -11,7 +11,7 @@
 		{
 			title: 'Account',
 			href: '/my/settings/account',
-			icon: 'mdi-gear'
+			icon: 'mdi-card-account-details'
 		},
 		{
 			title: 'Security',
@@ -31,7 +31,7 @@
 					<li>
 						<a
 							href={navItem.href}
-							class="group flex gap-x-3 rounded-md py-2 pl-2 pr-3 text-sm font-semibold leading-6 text-gray-700 hover:bg-gray-50 hover:text-indigo-600 {$page
+							class="group flex gap-x-3 items-center rounded-md py-2 pl-2 pr-3 text-sm font-semibold leading-6 text-gray-700 hover:bg-gray-50 hover:text-indigo-600 {$page
 								.url.pathname === navItem.href
 								? 'active bg-gray-50 text-indigo-600'
 								: ''}"

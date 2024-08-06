@@ -62,7 +62,7 @@
 		enctype="multipart/form-data"
 		use:enhance={submitUpdateProfile}
 	>
-		<h1 class="text-2xl">Update Profile</h1>
+		<h1 class="text-lg font-semibold leading-6 text-gray-900">Update Profile</h1>
 		<div class="divider" />
 		<div class="form-control w-full max-w-lg">
 			<label for="avatar" class="avatar relative mb-5 w-32 rounded-full hover:cursor-pointer">

@@ -6,7 +6,6 @@
 	import Toast from '$lib/components/utils/Toast.svelte';
 
 	export let form;
-	export let data;
 	let loading: any;
 
 	$: loading = false;
@@ -71,8 +70,8 @@
 </script>
 
 <div class="flex h-full w-full flex-col space-y-12">
-	<div class="w-full">
-		<h1 class="text-2xl">Update Email</h1>
+	<div class="w-full space-y-2">
+		<h1 class="text-lg font-semibold leading-6 text-gray-900">Update Email</h1>
 		<form action="?/updateEmail" method="POST" class="space-y-2" use:enhance={submitUpdateEmail}>
 			<Input
 				id="email"
@@ -87,8 +86,8 @@
 		</form>
 	</div>
 
-	<div class="w-full">
-		<h1 class="text-2xl">Update Username</h1>
+	<div class="w-full space-y-2">
+		<h1 class="text-lg font-semibold leading-6 text-gray-900">Update Username</h1>
 		<form
 			action="?/updateUsername"
 			method="POST"
