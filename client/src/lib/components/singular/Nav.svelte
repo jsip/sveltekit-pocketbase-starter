@@ -60,7 +60,7 @@
 
 				<img
 					class="h-8 w-auto"
-					src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+					src="https://tailwindui.com/img/logos/mark.svg"
 					alt="Your Company"
 				/>
 			</div>
@@ -136,10 +136,10 @@
 							<a
 								href={link.href}
 								aria-label={link.name}
-								class="block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 group"
+								class="block rounded-lg px-3 py-2 text-sm leading-7 text-primary hover:bg-tertiary/20 group"
 								on:click={toggleAvatarDropdown}
 							>
-								<div class="flex items-center gap-2 font-bold">
+								<div class="flex items-center gap-2 font-semibold">
 									<Icon icon={link.icon} class="h-5 w-5 transition-all will-change-transform duration-300 group-hover:translate-x-1" />
 									<div>{link.name}</div>
 								</div>
@@ -147,17 +147,17 @@
 						{/each}
 						
 						<form
-							class="flex w-fit"
+							class="flex w-full flex-1"
 							method="POST"
 							action="/auth/logout"
 							on:submit={handleLogout}
 							aria-label="Logout"
 						>
-							<button class="btn group/logoutButton w-full block rounded-lg px-3 py-2 text-base font-bold leading-7 text-gray-900 hover:bg-gray-50" aria-label="Logout">
-								<div class="flex items-center gap-2 font-bold">
+							<button class="block w-full rounded-lg px-3 py-2 text-sm leading-7 text-primary hover:bg-tertiary/20 group" aria-label="Logout">
+								<div class="flex items-center gap-2 font-semibold">
 									<Icon
 										icon="mdi-logout"
-										class="h-5 w-5 transition-all will-change-transform duration-300 md:group-hover/logoutButton:translate-x-1"
+										class="h-5 w-5 transition-all will-change-transform duration-300 md:group-hover:translate-x-1"
 									/>
 									<div class="">Logout</div>
 								</div>
@@ -198,7 +198,7 @@
 							<span class="sr-only">Your Company</span>
 							<img
 								class="h-8 w-auto"
-								src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+								src="https://tailwindui.com/img/logos/mark.svg"
 								alt=""
 							/>
 						</a>
@@ -227,7 +227,7 @@
 			<a href="/">
 				<img
 					class="h-8 w-auto"
-					src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+					src="https://tailwindui.com/img/logos/mark.svg"
 					alt="Your Company"
 				/>
 			</a>

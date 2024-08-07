@@ -31,14 +31,14 @@
 					<li>
 						<a
 							href={navItem.href}
-							class="group flex gap-x-3 items-center rounded-md py-2 pl-2 pr-3 text-sm font-semibold leading-6 text-gray-700 hover:bg-gray-50 hover:text-indigo-600 {$page
+							class="group flex gap-x-3 items-center rounded-md py-2 pl-2 pr-3 text-sm font-semibold leading-6 text-gray-700 hover:bg-gray-50 hover:text-primary {$page
 								.url.pathname === navItem.href
-								? 'active bg-gray-50 text-indigo-600'
+								? 'active bg-gray-50 text-primary'
 								: ''}"
 						>
 							<Icon
 								icon={navItem.icon}
-								class="h-5 w-5 shrink-0 text-gray-400 group-hover:text-indigo-600"
+								class="h-5 w-5 shrink-0 text-gray-400 group-hover:text-primary"
 							/>
 							{navItem.title}
 						</a>
