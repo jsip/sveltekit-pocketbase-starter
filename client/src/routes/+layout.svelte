@@ -6,6 +6,8 @@
 	import Footer from '$lib/components/singular/Footer.svelte';
 	import { onNavigate } from '$app/navigation';
 	import { page } from '$app/stores';
+	import Toast from '$lib/components/utils/Toast.svelte';
+	import { toast } from '$lib/stores/toast';
 
 	onNavigate((navigation) => {
 		// @ts-ignore
@@ -36,14 +38,16 @@
 	<title>{currentPageTitle}</title>
 </svelte:head>
 
-<div class="h-full min-h-screen">
+<div class="h-full min-h-screen bg-white dark:bg-gray-900">
+	<Toast {...$toast} />
+
 	<div class="bg-base-100 sticky top-0 z-50">
-		<div class="w-[95%] md:flex">
-			<Nav {data} />
+		<div class="md:flex">
+			<Nav />
 		</div>
 	</div>
 
-	<div class="mx-auto w-full max-w-2xl p-2">
+	<div class="max-w-screen mx-auto">
 		<slot />
 	</div>
 
