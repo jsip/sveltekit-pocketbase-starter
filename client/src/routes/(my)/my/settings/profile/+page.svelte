@@ -35,7 +35,7 @@
 						message: 'Profile updated successfully',
 						type: 'success'
 					});
-					setTimeout(() => toast.set({ show: false, message: '', type: '' }), 2000);
+
 					await invalidateAll();
 					break;
 				case 'error':
@@ -44,7 +44,7 @@
 						message: 'Profile update failed',
 						type: 'error'
 					});
-					setTimeout(() => toast.set({ show: false, message: '', type: '' }), 2000);
+
 					break;
 				default:
 					await applyAction(result);
@@ -62,34 +62,28 @@
 		enctype="multipart/form-data"
 		use:enhance={submitUpdateProfile}
 	>
-		<h1 class="text-lg font-semibold leading-6 text-gray-900">Update Profile</h1>
+		<h1 class="text-lg font-semibold leading-6 dark:text-gray-50">Update Profile</h1>
 		<div class="divider" />
-		<div class="form-control w-full max-w-lg">
+		<div class="form-control w-fit">
 			<label for="avatar" class="avatar relative mb-5 w-32 rounded-full hover:cursor-pointer">
 				<label for="avatar" class="absolute -bottom-0.5 -right-0.5 z-20 hover:cursor-pointer">
-					<span class="btn btn-circle btn-sm btn-secondary">
+					<span class="btn-primary-outline rounded-full bg-white dark:bg-gray-900 p-0">
 						{#if data.user?.avatar}
-							<Icon icon="mdi-pencil" class="h-6 w-6" />
+							<Icon icon="mdi-pencil" class="h-10 w-10" />
 						{:else}
-							<Icon icon="mdi-plus" class="h-6 w-6" />
+							<Icon icon="mdi-plus" class="h-10 w-10" />
 						{/if}
 					</span>
 				</label>
-				<div class="border-primary w-32 rounded-full border">
-					{#if data.user?.avatar}
-						<img
-							src={data.user?.avatar
-								? getImageURL(data.user?.collectionId, data.user?.id, data.user?.avatar)
-								: `https://ui-avatars.com/api/?name=${data.user?.email}`}
-							alt="User avatar"
-							id="avatar-preview"
-						/>
-					{:else}
-						<Icon
-							icon="mdi-account-circle"
-							class="text-base-100 bg-primary h-full w-full scale-110 rounded-full"
-						/>
-					{/if}
+				<div class="h-32 w-32 rounded-full">
+					<img
+						src={data.user?.avatar
+							? getImageURL(data.user?.collectionId, data.user?.id, data.user?.avatar)
+							: `https://ui-avatars.com/api/?name=${data.user?.email}`}
+						alt="User avatar"
+						class="h-32 w-32 rounded-full object-cover"
+						id="avatar-preview"
+					/>
 				</div>
 			</label>
 			<input
@@ -121,7 +115,7 @@
 		/>
 
 		<div class="w-full max-w-lg pt-3">
-			<button class="btn btn-primary w-full max-w-lg" type="submit" disabled={loading}>
+			<button class="btn btn-primary w-fit" type="submit" disabled={loading}>
 				Update Profile
 			</button>
 		</div>

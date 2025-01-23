@@ -1,6 +1,6 @@
 import { error, fail } from '@sveltejs/kit';
 import type { PageServerLoad, Actions } from './$types';
-import { updateProfileSchema } from '$lib/types/schemas';
+import { updateProfileSchema } from '$lib/types/user_schemas';
 import { validateData } from '$lib/utils/utils';
 import { serialize } from 'object-to-formdata';
 import { loginRedirectIfInvalidAuth } from '$lib/middleware/auth';

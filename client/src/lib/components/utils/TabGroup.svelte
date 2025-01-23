@@ -1,6 +1,6 @@
 <!-- Taken from https://github.com/skeletonlabs/skeleton/blob/master/packages/skeleton/src/lib/components/Tab/TabGroup.svelte -->
 <script lang="ts">
-	import type { CssClasses } from '$lib/types/components';
+	type CssClasses = string;
 	// Slots
 	/**
 	 * @slot panel - An optional region to house tab content.

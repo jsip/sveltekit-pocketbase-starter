@@ -21,7 +21,7 @@
 						message: 'Email updated successfully',
 						type: 'success'
 					});
-					setTimeout(() => toast.set({ show: false, message: '', type: '' }), 2000);
+
 					break;
 				case 'error':
 					await invalidateAll();
@@ -30,7 +30,7 @@
 						message: 'Email update failed',
 						type: 'error'
 					});
-					setTimeout(() => toast.set({ show: false, message: '', type: '' }), 2000);
+
 					break;
 				default:
 					await applyAction(result);
@@ -50,7 +50,7 @@
 						message: 'Profile updated successfully',
 						type: 'success'
 					});
-					setTimeout(() => toast.set({ show: false, message: '', type: '' }), 2000);
+
 					await invalidateAll();
 					break;
 				case 'error':
@@ -59,7 +59,7 @@
 						message: 'Profile update failed',
 						type: 'error'
 					});
-					setTimeout(() => toast.set({ show: false, message: '', type: '' }), 2000);
+
 					break;
 				default:
 					await applyAction(result);
@@ -71,7 +71,7 @@
 
 <div class="flex h-full w-full flex-col space-y-12">
 	<div class="w-full space-y-2">
-		<h1 class="text-lg font-semibold leading-6 text-gray-900">Update Email</h1>
+		<h1 class="text-lg font-semibold leading-6 dark:text-gray-50">Update Email</h1>
 		<form action="?/updateEmail" method="POST" class="space-y-2" use:enhance={submitUpdateEmail}>
 			<Input
 				id="email"
@@ -82,12 +82,12 @@
 				errors={form?.errors?.email}
 				placeholder="Email"
 			/>
-			<button type="submit" class="btn btn-primary w-full" disabled={loading}>Save</button>
+			<button type="submit" class="btn btn-primary w-fit" disabled={loading}>Save</button>
 		</form>
 	</div>
 
 	<div class="w-full space-y-2">
-		<h1 class="text-lg font-semibold leading-6 text-gray-900">Update Username</h1>
+		<h1 class="text-lg font-semibold leading-6 dark:text-gray-50">Update Username</h1>
 		<form
 			action="?/updateUsername"
 			method="POST"
@@ -103,7 +103,7 @@
 				disabled={loading}
 				placeholder="Username"
 			/>
-			<button type="submit" class="btn btn-primary w-full" disabled={loading}>Save</button>
+			<button type="submit" class="btn btn-primary w-fit" disabled={loading}>Save</button>
 		</form>
 	</div>
 </div>

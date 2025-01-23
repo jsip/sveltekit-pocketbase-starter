@@ -1,5 +1,5 @@
 import { error, fail, redirect } from '@sveltejs/kit';
-import { registerUserSchema } from '$lib/types/schemas';
+import { registerUserSchema } from '$lib/types/user_schemas';
 import { validateData } from '$lib/utils/utils';
 import { API } from '$lib/server/client';
 import { generateUsername } from '$lib/utils/user';

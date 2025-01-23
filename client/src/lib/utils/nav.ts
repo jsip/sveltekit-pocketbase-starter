@@ -3,7 +3,7 @@ import { PUBLIC_POCKETBASE_URL } from '$env/static/public';
 export const headerNavLinks = [
 	{
 		name: 'Home',
-		href: '/',
+		href: '/my/home',
 		icon: 'material-symbols:home'
 	},
 	{

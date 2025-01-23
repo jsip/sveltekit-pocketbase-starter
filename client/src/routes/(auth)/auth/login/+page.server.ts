@@ -1,7 +1,7 @@
 import type { Actions } from './$types';
 import { error, fail, redirect } from '@sveltejs/kit';
 import { validateData } from '$lib/utils/utils';
-import { loginUserSchema } from '$lib/types/schemas';
+import { loginUserSchema } from '$lib/types/user_schemas';
 import { API } from '$lib/server/client';
 
 export const actions: Actions = {

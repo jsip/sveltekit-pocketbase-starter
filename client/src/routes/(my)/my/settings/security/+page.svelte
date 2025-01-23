@@ -6,8 +6,8 @@
 <div class="flex h-full w-full flex-col">
 	<div class="w-full">
 		<form action="?/updatePassword" method="POST" class="flex w-full flex-col space-y-2">
-			<h1 class="text-lg font-semibold leading-6 text-gray-900">Update Password</h1>
-			<a href="/auth/reset" class="text-primary hover:cursor-point text-sm hover:underline">
+			<h1 class="text-lg font-semibold leading-6 dark:text-gray-50">Update Password</h1>
+			<a href="/auth/reset" class="hover:cursor-point text-sm text-primary dark:text-white hover:underline">
 				I forgot my password</a
 			>
 			<div class="divider" />
@@ -33,7 +33,7 @@
 				placeholder="Confirm Password"
 			/>
 			<div class="w-full max-w-lg pt-2">
-				<button type="submit" class="btn btn-primary w-full max-w-lg"> Update Password </button>
+				<button type="submit" class="btn btn-primary w-fit max-w-lg"> Update Password </button>
 			</div>
 		</form>
 	</div>

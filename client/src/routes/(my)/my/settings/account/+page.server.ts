@@ -1,5 +1,5 @@
 import { error, fail } from '@sveltejs/kit';
-import { updateEmailSchema, updateUsernameSchema } from '$lib/types/schemas';
+import { updateEmailSchema, updateUsernameSchema } from '$lib/types/user_schemas';
 import { validateData } from '$lib/utils/utils';
 import { API } from '$lib/server/client';
 import { loginRedirectIfInvalidAuth } from '$lib/middleware/auth';
