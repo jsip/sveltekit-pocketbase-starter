@@ -2,7 +2,6 @@ import type { Config } from 'tailwindcss';
 
 export default {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
-
 	theme: {
 		extend: {
 			colors: {
@@ -27,6 +26,11 @@ export default {
 			}
 		}
 	},
-
-	plugins: [require('@tailwindcss/typography')]
+	darkMode: 'class',
+	plugins: [
+		// @ts-ignore
+		require('@tailwindcss/typography'),
+		// @ts-ignore
+		require('@tailwindcss/forms'),
+	]
 } as Config;
