@@ -10,7 +10,7 @@
 
 <div>
 	<div class="flex justify-between">
-		<label for={id} class="block text-sm font-medium leading-6 text-gray-900">{placeholder}</label>
+		<label for={id} class="block text-sm font-medium leading-6 text-gray-900 dark:text-white">{placeholder}</label>
 		{#if required}
 			<span class="text-sm leading-6 text-gray-500" id="{id}-required">Required</span>
 		{/if}

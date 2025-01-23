@@ -81,7 +81,7 @@
 			searchedDebounced = false;
 		}, 500);
 
-		const req = await fetch('/my/home?/searchTransactions', {
+		const req = await fetch('/my/home?/search', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/x-www-form-urlencoded'
@@ -92,12 +92,12 @@
 		const res = await req.json();
 
 		const data = JSON.parse(res.data);
-		searchResults = JSON.parse(data).transactions;
+		searchResults = JSON.parse(data);
 	};
 </script>
 
 <svelte:head>
-	<title>Budget - {currentPageTitle}</title>
+	<title>Starter - {currentPageTitle}</title>
 </svelte:head>
 
 <div>
@@ -131,11 +131,11 @@
 
 				<!-- Sidebar content -->
 				<div
-					class="z-20 m-8 mt-16 flex grow flex-col gap-y-5 overflow-y-auto rounded-xl bg-white px-6 pb-4 dark:bg-gray-900"
+					class="z-20 m-8 mt-16 flex grow flex-col gap-y-5 overflow-y-auto rounded-xl bg-white px-6 pb-4 dark:bg-zinc-900"
 				>
 					<div class="flex h-16 shrink-0 items-center">
-						<img class="h-8 w-auto dark:hidden" src="/logo.png" alt="Budget" />
-						<img class="hidden h-8 w-auto dark:block" src="/logo-white.png" alt="Budget" />
+						<img class="h-8 w-auto dark:hidden" src="/logo.png" alt="Starter" />
+						<img class="hidden h-8 w-auto dark:block" src="/logo.png" alt="Starter" />
 					</div>
 					<nav class="flex flex-1 flex-col">
 						<ul role="list" class="flex flex-1 flex-col gap-y-7">
@@ -161,7 +161,7 @@
 								</ul>
 							</li>
 							<li>
-								<div class="text-xs font-semibold text-gray-400">Monthly budgets</div>
+								<div class="text-xs font-semibold text-gray-400">List title</div>
 								<ul role="list" class="mt-2 space-y-1"></ul>
 							</li>
 							<li class="mt-auto">
@@ -229,11 +229,11 @@
 		</button>
 
 		<div
-			class="m-4 mr-0 flex grow flex-col gap-y-5 overflow-y-auto rounded-xl border border-gray-50 bg-white px-6 pb-4 shadow dark:border-slate-700 dark:bg-gray-900 dark:shadow-slate-700"
+			class="m-4 mr-0 flex grow flex-col gap-y-5 overflow-y-auto rounded-xl border border-gray-50 px-6 pb-4 shadow dark:border-slate-700 dark:shadow-slate-700"
 		>
 			<div class="flex h-16 shrink-0 items-center">
-				<img class="h-8 w-auto dark:hidden" src="/logo.png" alt="Budget" />
-				<img class="hidden h-8 w-auto dark:block" src="/logo-white.png" alt="Budget" />
+				<img class="h-8 w-auto dark:hidden" src="/logo.png" alt="Starter" />
+				<img class="hidden h-8 w-auto dark:block" src="/logo.png" alt="Starter" />
 			</div>
 			<nav class="flex flex-1 flex-col">
 				<ul role="list" class="flex flex-1 flex-col gap-y-7">
@@ -259,7 +259,7 @@
 						</ul>
 					</li>
 					<li>
-						<div class="text-xs font-semibold text-gray-400">Monthly budgets</div>
+						<div class="text-xs font-semibold text-gray-400">List title</div>
 						<ul role="list" class="mt-2 space-y-1"></ul>
 					</li>
 					<li class="mt-auto">
@@ -308,7 +308,7 @@
 	</div>
 
 	<div class={isDesktopSidebarOpen ? 'lg:pl-72' : 'lg:pl-0'}>
-		<div class="sticky top-0 z-40 flex h-16 shrink-0 items-center bg-white px-8 dark:bg-gray-900">
+		<div class="sticky top-0 z-40 flex h-16 shrink-0 items-center px-8">
 			<button
 				type="button"
 				on:click={() => toggleSidebar(true)}
@@ -352,7 +352,7 @@
 					</svg>
 					<input
 						id="search-field"
-						class="ml-4 block h-full w-full border-0 py-0 pr-0 placeholder:text-gray-400 focus:ring-0 sm:text-sm dark:bg-gray-900 dark:text-gray-50"
+						class="ml-4 block h-full w-full border-0 py-0 pr-0 placeholder:text-gray-400 focus:ring-0 sm:text-sm bg-white dark:bg-zinc-900 dark:text-gray-50"
 						placeholder="Search..."
 						type="search"
 						name="query"

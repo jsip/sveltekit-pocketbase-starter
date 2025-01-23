@@ -13,12 +13,6 @@
 			<div class="mx-auto">
 				<div class="mx-auto max-w-2xl lg:mx-0 lg:max-w-none">
 					<div class="flex items-center justify-between">
-						<h2 class="text-base font-semibold leading-7 text-gray-900">Recent deals</h2>
-						<a
-							href="/my/deals"
-							class="text-sm font-semibold leading-6 text-primary hover:text-primary-hover"
-							>View all<span class="sr-only"> deals</span></a
-						>
 					</div>
 					<ul
 						role="list"
