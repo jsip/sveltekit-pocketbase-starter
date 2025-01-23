@@ -60,7 +60,7 @@
 			{:else}
 				Register <Icon
 					icon="mdi-account-plus"
-					class="h-5 w-5 ml-2 transition-all duration-300 md:group-hover/registerButton:translate-x-1"
+					class="ml-2 h-5 w-5 transition-all duration-300 md:group-hover/registerButton:translate-x-1"
 				/>
 			{/if}
 		</button>

@@ -67,7 +67,7 @@
 		<div class="form-control w-fit">
 			<label for="avatar" class="avatar relative mb-5 w-32 rounded-full hover:cursor-pointer">
 				<label for="avatar" class="absolute -bottom-0.5 -right-0.5 z-20 hover:cursor-pointer">
-					<span class="btn-primary-outline rounded-full bg-white dark:bg-gray-900 p-0">
+					<span class="btn-primary-outline rounded-full bg-white p-0 dark:bg-gray-900">
 						{#if data.user?.avatar}
 							<Icon icon="mdi-pencil" class="h-10 w-10" />
 						{:else}

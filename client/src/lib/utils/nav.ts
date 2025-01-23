@@ -22,16 +22,16 @@ export const avatarNavLinks = [
 	{
 		name: 'Profile',
 		href: '/my/settings/profile',
-		icon: 'mdi-user',
+		icon: 'mdi-user'
 	},
 	{
 		name: 'Account',
 		href: '/my/settings/account',
-		icon: 'mdi-card-account-details',
+		icon: 'mdi-card-account-details'
 	},
 	{
 		name: 'Security',
 		href: '/my/settings/security',
-		icon: 'mdi-lock',
+		icon: 'mdi-lock'
 	}
-]
+];

@@ -32,9 +32,9 @@
 					<li>
 						<a
 							href={navItem.href}
-							class="group flex items-center gap-x-3 rounded-md py-2 pl-2 pr-3 text-sm font-semibold leading-6 text-gray-700 hover:bg-tertiary/20 dark:hover:bg-tertiary/5 hover:text-primary dark:text-white {$page
+							class="group flex items-center gap-x-3 rounded-md py-2 pl-2 pr-3 text-sm font-semibold leading-6 text-gray-700 hover:bg-tertiary/20 hover:text-primary dark:text-white dark:hover:bg-tertiary/5 {$page
 								.url.pathname === navItem.href
-								? 'active bg-tertiary/20 dark:bg-tertiary/5 text-primary dark:text-white'
+								? 'active bg-tertiary/20 text-primary dark:bg-tertiary/5 dark:text-white'
 								: ''}"
 						>
 							<Icon

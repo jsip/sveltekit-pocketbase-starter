@@ -105,7 +105,7 @@
 				{#if attributeValue}
 					<Icon icon="mdi-pencil" class="ml-2 h-4 w-4 text-gray-400" />
 				{:else}
-					<span class="text-sm font-medium leading-6 text-gray-900 text-nowrap">
+					<span class="text-nowrap text-sm font-medium leading-6 text-gray-900">
 						{emptyValueText}
 					</span>
 				{/if}

@@ -47,7 +47,7 @@
 			placeholder={'Password'}
 		/>
 		<div class="w-full max-w-lg">
-			<a href="/auth/reset" class="text-primary text-sm hover:cursor-pointer hover:underline">
+			<a href="/auth/reset" class="text-sm text-primary hover:cursor-pointer hover:underline">
 				Forgot Password?</a
 			>
 		</div>
@@ -58,7 +58,7 @@
 			{:else}
 				Login <Icon
 					icon="mdi-login"
-					class="h-5 w-5 ml-2 transition-all duration-300 md:group-hover/loginButton:translate-x-1"
+					class="ml-2 h-5 w-5 transition-all duration-300 md:group-hover/loginButton:translate-x-1"
 				/>
 			{/if}
 		</button>

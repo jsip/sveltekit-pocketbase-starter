@@ -131,11 +131,11 @@
 
 				<!-- Sidebar content -->
 				<div
-					class="z-20 m-8 mt-16 flex grow flex-col gap-y-5 overflow-y-auto rounded-xl bg-white dark:bg-gray-900 px-6 pb-4"
+					class="z-20 m-8 mt-16 flex grow flex-col gap-y-5 overflow-y-auto rounded-xl bg-white px-6 pb-4 dark:bg-gray-900"
 				>
 					<div class="flex h-16 shrink-0 items-center">
 						<img class="h-8 w-auto dark:hidden" src="/logo.png" alt="Budget" />
-						<img class="h-8 w-auto hidden dark:block" src="/logo-white.png" alt="Budget" />
+						<img class="hidden h-8 w-auto dark:block" src="/logo-white.png" alt="Budget" />
 					</div>
 					<nav class="flex flex-1 flex-col">
 						<ul role="list" class="flex flex-1 flex-col gap-y-7">
@@ -145,7 +145,7 @@
 										<li>
 											<a
 												href={navItem.href}
-												class="group block w-full rounded-lg p-2 text-sm leading-7 text-primary dark:text-white hover:bg-tertiary/20 dark:hover:bg-tertiary/5"
+												class="group block w-full rounded-lg p-2 text-sm leading-7 text-primary hover:bg-tertiary/20 dark:text-white dark:hover:bg-tertiary/5"
 												aria-label="Navigation link"
 											>
 												<div class="flex items-center gap-2 font-semibold">
@@ -162,13 +162,12 @@
 							</li>
 							<li>
 								<div class="text-xs font-semibold text-gray-400">Monthly budgets</div>
-								<ul role="list" class="mt-2 space-y-1">
-								</ul>
+								<ul role="list" class="mt-2 space-y-1"></ul>
 							</li>
 							<li class="mt-auto">
 								<a
 									href="/my/settings"
-									class="group block w-full rounded-lg py-2 text-sm leading-7 text-primary dark:text-white hover:bg-tertiary/20 dark:hover:bg-tertiary/5"
+									class="group block w-full rounded-lg py-2 text-sm leading-7 text-primary hover:bg-tertiary/20 dark:text-white dark:hover:bg-tertiary/5"
 									aria-label="Settings"
 								>
 									<div class="flex items-center gap-2 font-semibold">
@@ -179,7 +178,7 @@
 										<div>Settings</div>
 									</div>
 								</a>
-		
+
 								<div class="flex w-full justify-between">
 									<form
 										class="flex w-full flex-1"
@@ -189,7 +188,7 @@
 										aria-label="Logout"
 									>
 										<button
-											class="group block w-full rounded-lg py-2 text-sm leading-7 text-primary dark:text-white hover:bg-tertiary/20 dark:hover:bg-tertiary/5"
+											class="group block w-full rounded-lg py-2 text-sm leading-7 text-primary hover:bg-tertiary/20 dark:text-white dark:hover:bg-tertiary/5"
 											aria-label="Logout"
 										>
 											<div class="flex items-center gap-2 font-semibold">
@@ -201,7 +200,7 @@
 											</div>
 										</button>
 									</form>
-									
+
 									<DarkMode />
 								</div>
 							</li>
@@ -225,16 +224,16 @@
 		>
 			<Icon
 				icon="mdi-swap-horizontal"
-				class="h-8 w-8 rounded-full border-2 border-gray-50 dark:border-slate-700 bg-white dark:bg-gray-900 p-1 text-primary dark:text-white shadow transition-transform will-change-transform group-hover:-translate-x-2"
+				class="h-8 w-8 rounded-full border-2 border-gray-50 bg-white p-1 text-primary shadow transition-transform will-change-transform group-hover:-translate-x-2 dark:border-slate-700 dark:bg-gray-900 dark:text-white"
 			/>
 		</button>
 
 		<div
-			class="m-4 mr-0 flex grow flex-col gap-y-5 overflow-y-auto border border-gray-50 dark:border-slate-700 rounded-xl bg-white dark:bg-gray-900 px-6 pb-4 shadow dark:shadow-slate-700"
+			class="m-4 mr-0 flex grow flex-col gap-y-5 overflow-y-auto rounded-xl border border-gray-50 bg-white px-6 pb-4 shadow dark:border-slate-700 dark:bg-gray-900 dark:shadow-slate-700"
 		>
 			<div class="flex h-16 shrink-0 items-center">
 				<img class="h-8 w-auto dark:hidden" src="/logo.png" alt="Budget" />
-				<img class="h-8 w-auto hidden dark:block" src="/logo-white.png" alt="Budget" />
+				<img class="hidden h-8 w-auto dark:block" src="/logo-white.png" alt="Budget" />
 			</div>
 			<nav class="flex flex-1 flex-col">
 				<ul role="list" class="flex flex-1 flex-col gap-y-7">
@@ -244,7 +243,7 @@
 								<li>
 									<a
 										href={navItem.href}
-										class="group block w-full rounded-lg p-2 text-sm leading-7 text-primary dark:text-white hover:bg-tertiary/20 dark:hover:bg-tertiary/5"
+										class="group block w-full rounded-lg p-2 text-sm leading-7 text-primary hover:bg-tertiary/20 dark:text-white dark:hover:bg-tertiary/5"
 										aria-label="Navigation link"
 									>
 										<div class="flex items-center gap-2 font-semibold">
@@ -261,13 +260,12 @@
 					</li>
 					<li>
 						<div class="text-xs font-semibold text-gray-400">Monthly budgets</div>
-						<ul role="list" class="mt-2 space-y-1">
-						</ul>
+						<ul role="list" class="mt-2 space-y-1"></ul>
 					</li>
 					<li class="mt-auto">
 						<a
 							href="/my/settings"
-							class="group block w-full rounded-lg py-2 text-sm leading-7 text-primary dark:text-white hover:bg-tertiary/20 dark:hover:bg-tertiary/5"
+							class="group block w-full rounded-lg py-2 text-sm leading-7 text-primary hover:bg-tertiary/20 dark:text-white dark:hover:bg-tertiary/5"
 							aria-label="Settings"
 						>
 							<div class="flex items-center gap-2 font-semibold">
@@ -288,7 +286,7 @@
 								aria-label="Logout"
 							>
 								<button
-									class="group block w-full rounded-lg py-2 text-sm leading-7 text-primary dark:text-white hover:bg-tertiary/20 dark:hover:bg-tertiary/5"
+									class="group block w-full rounded-lg py-2 text-sm leading-7 text-primary hover:bg-tertiary/20 dark:text-white dark:hover:bg-tertiary/5"
 									aria-label="Logout"
 								>
 									<div class="flex items-center gap-2 font-semibold">
@@ -300,7 +298,7 @@
 									</div>
 								</button>
 							</form>
-							
+
 							<DarkMode />
 						</div>
 					</li>
@@ -310,7 +308,7 @@
 	</div>
 
 	<div class={isDesktopSidebarOpen ? 'lg:pl-72' : 'lg:pl-0'}>
-		<div class="sticky top-0 z-40 flex h-16 shrink-0 items-center bg-white dark:bg-gray-900 px-8">
+		<div class="sticky top-0 z-40 flex h-16 shrink-0 items-center bg-white px-8 dark:bg-gray-900">
 			<button
 				type="button"
 				on:click={() => toggleSidebar(true)}
@@ -334,7 +332,7 @@
 
 			<div class="relative flex flex-1 items-center gap-x-4 self-stretch lg:gap-x-6">
 				<form
-					class="relative ml-4 flex flex-1 rounded-lg border border-gray-200 dark:border-slate-700 dark:shadow-slate-700 px-4 py-2 md:p-4"
+					class="relative ml-4 flex flex-1 rounded-lg border border-gray-200 px-4 py-2 md:p-4 dark:border-slate-700 dark:shadow-slate-700"
 					action="#"
 					method="GET"
 				>
@@ -354,7 +352,7 @@
 					</svg>
 					<input
 						id="search-field"
-						class="ml-4 block h-full w-full border-0 py-0 pr-0 dark:text-gray-50 placeholder:text-gray-400 dark:bg-gray-900 focus:ring-0 sm:text-sm"
+						class="ml-4 block h-full w-full border-0 py-0 pr-0 placeholder:text-gray-400 focus:ring-0 sm:text-sm dark:bg-gray-900 dark:text-gray-50"
 						placeholder="Search..."
 						type="search"
 						name="query"
@@ -366,14 +364,13 @@
 						{#if searchResults?.length > 0}
 							<table
 								id="search-results"
-								class="absolute inset-x-0 top-16 flex max-h-[30rem] w-full flex-col overflow-y-scroll rounded-xl border-2 border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 shadow-2xl"
+								class="absolute inset-x-0 top-16 flex max-h-[30rem] w-full flex-col overflow-y-scroll rounded-xl border-2 border-gray-200 bg-white shadow-2xl dark:border-gray-800 dark:bg-gray-900"
 								use:clickoutside={{ enabled: searchResults.length > 0 }}
 								on:clickoutside={() =>
 									document.getElementById('search-results')?.classList.add('hidden')}
 							>
 								<tbody>
-									{#each searchResults as result}
-									{/each}
+									{#each searchResults as result}{/each}
 								</tbody>
 							</table>
 						{/if}

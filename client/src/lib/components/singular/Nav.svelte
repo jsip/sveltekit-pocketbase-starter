@@ -7,7 +7,7 @@
 	import { avatarNavLinks, headerNavLinks } from '$lib/utils/nav';
 	import { onMount } from 'svelte';
 	import { browser } from '$app/environment';
-	import { clickoutside } from "@svelte-put/clickoutside";
+	import { clickoutside } from '@svelte-put/clickoutside';
 	import DarkMode from './DarkMode.svelte';
 
 	let mobileMenu: HTMLDivElement;
@@ -22,16 +22,16 @@
 
 	const toggleMobileMenu = () => {
 		mobileMenu.classList.toggle('hidden');
-	}
+	};
 
 	const toggleAvatarDropdown = () => {
 		avatarDropdown.classList.toggle('hidden');
 		avatarDropdownOpen = !avatarDropdownOpen;
-	}
+	};
 
 	onMount(() => {
 		if (browser) {
-			parent = document.querySelector("body")!;
+			parent = document.querySelector('body')!;
 		}
 	});
 
@@ -115,7 +115,11 @@
 									<img
 										class="h-6 w-6 rounded-full"
 										src={$currentUser?.avatar
-											? getImageURL($currentUser?.collectionId, $currentUser?.id, $currentUser?.avatar)
+											? getImageURL(
+													$currentUser?.collectionId,
+													$currentUser?.id,
+													$currentUser?.avatar
+												)
 											: `https://ui-avatars.com/api/?name=${$currentUser?.username}`}
 										alt="User avatar"
 									/>
@@ -126,7 +130,7 @@
 
 					<div
 						bind:this={avatarDropdown}
-						class="hidden show-dropdown absolute -right-2 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+						class="show-dropdown absolute -right-2 z-10 mt-2 hidden w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
 						role="menu"
 						aria-orientation="vertical"
 						aria-labelledby="user-menu-button"
@@ -136,16 +140,19 @@
 							<a
 								href={link.href}
 								aria-label={link.name}
-								class="block rounded-lg px-3 py-2 text-sm leading-7 text-primary hover:bg-tertiary/20 group"
+								class="group block rounded-lg px-3 py-2 text-sm leading-7 text-primary hover:bg-tertiary/20"
 								on:click={toggleAvatarDropdown}
 							>
 								<div class="flex items-center gap-2 font-semibold">
-									<Icon icon={link.icon} class="h-5 w-5 transition-all will-change-transform duration-300 group-hover:translate-x-1" />
+									<Icon
+										icon={link.icon}
+										class="h-5 w-5 transition-all duration-300 will-change-transform group-hover:translate-x-1"
+									/>
 									<div>{link.name}</div>
 								</div>
 							</a>
 						{/each}
-						
+
 						<form
 							class="flex w-full flex-1"
 							method="POST"
@@ -153,11 +160,14 @@
 							on:submit={handleLogout}
 							aria-label="Logout"
 						>
-							<button class="block w-full rounded-lg px-3 py-2 text-sm leading-7 text-primary hover:bg-tertiary/20 group" aria-label="Logout">
+							<button
+								class="group block w-full rounded-lg px-3 py-2 text-sm leading-7 text-primary hover:bg-tertiary/20"
+								aria-label="Logout"
+							>
 								<div class="flex items-center gap-2 font-semibold">
 									<Icon
 										icon="mdi-logout"
-										class="h-5 w-5 transition-all will-change-transform duration-300 md:group-hover:translate-x-1"
+										class="h-5 w-5 transition-all duration-300 will-change-transform md:group-hover:translate-x-1"
 									/>
 									<div class="">Logout</div>
 								</div>
@@ -196,11 +206,7 @@
 					<div class="-ml-0.5">
 						<a href="/" class="-m-1.5 block p-1.5">
 							<span class="sr-only">Your Company</span>
-							<img
-								class="h-8 w-auto"
-								src="https://tailwindui.com/img/logos/mark.svg"
-								alt=""
-							/>
+							<img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg" alt="" />
 						</a>
 					</div>
 				</div>

@@ -1,9 +1,9 @@
 <script lang="ts">
-  import '../app.css';
-  import { onNavigate } from '$app/navigation';
+	import '../app.css';
+	import { onNavigate } from '$app/navigation';
 	import { page } from '$app/stores';
 
-  onNavigate((navigation) => {
+	onNavigate((navigation) => {
 		// @ts-ignore
 		if (!document.startViewTransition) return;
 
@@ -29,4 +29,4 @@
 	<title>Collabed - {currentPageTitle}</title>
 </svelte:head>
 
-<slot/>
+<slot />
