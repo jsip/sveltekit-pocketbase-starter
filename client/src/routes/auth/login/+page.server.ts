@@ -4,6 +4,14 @@ import { validateData } from '$lib/utils/utils';
 import { loginUserSchema } from '$lib/types/user_schemas';
 import { API } from '$lib/server/client';
 
+export const load = async ({ locals }) => {
+	if (locals.pb.authStore.isValid) {
+		return redirect(303, '/my/home');
+	}
+
+	return {};
+};
+
 export const actions: Actions = {
 	login: async ({ request, locals }) => {
 		const { formData, errors } = await validateData(await request.formData(), loginUserSchema);
@@ -30,6 +38,6 @@ export const actions: Actions = {
 			throw error(err.status, err.message);
 		}
 
-		throw redirect(303, '/');
+		throw redirect(303, '/my/home');
 	}
 };

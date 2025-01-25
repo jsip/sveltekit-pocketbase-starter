@@ -1,17 +1,14 @@
 <script lang="ts">
 	import { currentUser } from '$lib/stores/user';
 	import type { LayoutServerData } from './$types';
-	import { goto } from '$app/navigation';
-	import { pb } from '$lib/pocketbase';
 	import { onNavigate } from '$app/navigation';
 	import Toast from '$lib/components/utils/Toast.svelte';
 	import { toast } from '$lib/stores/toast';
-	import Icon from '@iconify/svelte';
-	import { headerNavLinks } from '$lib/utils/nav';
 	import { page } from '$app/stores';
 	import { getImageURL } from '$lib/utils/utils';
 	import { clickoutside } from '@svelte-put/clickoutside';
-	import DarkMode from '$lib/components/singular/DarkMode.svelte';
+	import MobileSidebar from '$lib/components/singular/layout/MobileSidebar.svelte';
+	import DesktopSidebar from '$lib/components/singular/layout/DesktopSidebar.svelte';
 
 	export let data: LayoutServerData;
 
@@ -20,7 +17,6 @@
 	let searchResults: any;
 	let searchedDebounced: boolean = false;
 
-	// Set current user and page title
 	$: currentUser.set(data.user);
 	$: currentPageTitle = getCurrentPageTitle($page.url.pathname);
 
@@ -45,11 +41,6 @@
 			});
 		});
 	});
-
-	const handleLogout = () => {
-		pb.authStore.clear();
-		goto('/');
-	};
 
 	let isMobileSidebarOpen = false;
 	let isDesktopSidebarOpen = true;
@@ -103,211 +94,10 @@
 <div>
 	<Toast {...$toast} />
 
-	<!-- Off-canvas menu for mobile -->
-	<div
-		class={`fixed inset-0 z-50 transition-opacity duration-300 ${
-			isMobileSidebarOpen ? 'opacity-100' : 'pointer-events-none opacity-0'
-		} lg:hidden`}
-		role="dialog"
-		aria-modal="true"
-	>
-		<div
-			class="fixed inset-0 bg-gray-900/5"
-			aria-hidden="true"
-			on:click={() => toggleSidebar(false)}
-		></div>
+	<MobileSidebar bind:isMobileSidebarOpen />
+	<DesktopSidebar bind:isDesktopSidebarOpen />
 
-		<div
-			class={`fixed inset-0 flex transform transition-transform duration-300 ${
-				isMobileSidebarOpen ? 'translate-x-0' : '-translate-x-full'
-			}`}
-		>
-			<div class="relative mr-16 flex w-full max-w-xs flex-1">
-				<div class="absolute left-full top-0 flex w-16 justify-center pt-5">
-					<button type="button" on:click={() => toggleSidebar(false)} class="fixed inset-0 z-10">
-						<span class="sr-only">Close sidebar</span>
-					</button>
-				</div>
-
-				<!-- Sidebar content -->
-				<div
-					class="z-20 m-8 mt-16 flex grow flex-col gap-y-5 overflow-y-auto rounded-xl bg-white px-6 pb-4 dark:bg-zinc-900"
-				>
-					<div class="flex h-16 shrink-0 items-center">
-						<img class="h-8 w-auto dark:hidden" src="/logo.png" alt="Starter" />
-						<img class="hidden h-8 w-auto dark:block" src="/logo.png" alt="Starter" />
-					</div>
-					<nav class="flex flex-1 flex-col">
-						<ul role="list" class="flex flex-1 flex-col gap-y-7">
-							<li>
-								<ul role="list" class="-mx-2 space-y-1">
-									{#each headerNavLinks as navItem}
-										<li>
-											<a
-												href={navItem.href}
-												class="group block w-full rounded-lg p-2 text-sm leading-7 text-primary hover:bg-tertiary/20 dark:text-white dark:hover:bg-tertiary/5"
-												aria-label="Navigation link"
-											>
-												<div class="flex items-center gap-2 font-semibold">
-													<Icon
-														icon={navItem.icon}
-														class="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1"
-													/>
-													<div>{navItem.name}</div>
-												</div>
-											</a>
-										</li>
-									{/each}
-								</ul>
-							</li>
-							<li>
-								<div class="text-xs font-semibold text-gray-400">List title</div>
-								<ul role="list" class="mt-2 space-y-1"></ul>
-							</li>
-							<li class="mt-auto">
-								<a
-									href="/my/settings"
-									class="group block w-full rounded-lg py-2 text-sm leading-7 text-primary hover:bg-tertiary/20 dark:text-white dark:hover:bg-tertiary/5"
-									aria-label="Settings"
-								>
-									<div class="flex items-center gap-2 font-semibold">
-										<Icon
-											icon="mdi-settings"
-											class="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1"
-										/>
-										<div>Settings</div>
-									</div>
-								</a>
-
-								<div class="flex w-full justify-between">
-									<form
-										class="flex w-full flex-1"
-										method="POST"
-										action="/auth/logout"
-										on:submit={handleLogout}
-										aria-label="Logout"
-									>
-										<button
-											class="group block w-full rounded-lg py-2 text-sm leading-7 text-primary hover:bg-tertiary/20 dark:text-white dark:hover:bg-tertiary/5"
-											aria-label="Logout"
-										>
-											<div class="flex items-center gap-2 font-semibold">
-												<Icon
-													icon="mdi-logout"
-													class="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1"
-												/>
-												<div>Logout</div>
-											</div>
-										</button>
-									</form>
-
-									<DarkMode />
-								</div>
-							</li>
-						</ul>
-					</nav>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<!-- Static sidebar for desktop -->
-	<div
-		class="relative hidden transform transition-transform duration-300 lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col {isDesktopSidebarOpen
-			? ''
-			: '-translate-x-full'}"
-	>
-		<button
-			type="button"
-			class="absolute {isDesktopSidebarOpen ? '-right-4' : '-right-10'} group top-16"
-			on:click={() => toggleSidebar(!isDesktopSidebarOpen)}
-		>
-			<Icon
-				icon="mdi-swap-horizontal"
-				class="h-8 w-8 rounded-full border-2 border-gray-50 bg-white p-1 text-primary shadow transition-transform will-change-transform group-hover:-translate-x-2 dark:border-slate-700 dark:bg-gray-900 dark:text-white"
-			/>
-		</button>
-
-		<div
-			class="m-4 mr-0 flex grow flex-col gap-y-5 overflow-y-auto rounded-xl border border-gray-50 px-6 pb-4 shadow dark:border-slate-700 dark:shadow-slate-700"
-		>
-			<div class="flex h-16 shrink-0 items-center">
-				<img class="h-8 w-auto dark:hidden" src="/logo.png" alt="Starter" />
-				<img class="hidden h-8 w-auto dark:block" src="/logo.png" alt="Starter" />
-			</div>
-			<nav class="flex flex-1 flex-col">
-				<ul role="list" class="flex flex-1 flex-col gap-y-7">
-					<li>
-						<ul role="list" class="-mx-2 space-y-1">
-							{#each headerNavLinks as navItem}
-								<li>
-									<a
-										href={navItem.href}
-										class="group block w-full rounded-lg p-2 text-sm leading-7 text-primary hover:bg-tertiary/20 dark:text-white dark:hover:bg-tertiary/5"
-										aria-label="Navigation link"
-									>
-										<div class="flex items-center gap-2 font-semibold">
-											<Icon
-												icon={navItem.icon}
-												class="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1"
-											/>
-											<div>{navItem.name}</div>
-										</div>
-									</a>
-								</li>
-							{/each}
-						</ul>
-					</li>
-					<li>
-						<div class="text-xs font-semibold text-gray-400">List title</div>
-						<ul role="list" class="mt-2 space-y-1"></ul>
-					</li>
-					<li class="mt-auto">
-						<a
-							href="/my/settings"
-							class="group block w-full rounded-lg py-2 text-sm leading-7 text-primary hover:bg-tertiary/20 dark:text-white dark:hover:bg-tertiary/5"
-							aria-label="Settings"
-						>
-							<div class="flex items-center gap-2 font-semibold">
-								<Icon
-									icon="mdi-settings"
-									class="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1"
-								/>
-								<div>Settings</div>
-							</div>
-						</a>
-
-						<div class="flex w-full justify-between">
-							<form
-								class="flex w-full flex-1"
-								method="POST"
-								action="/auth/logout"
-								on:submit={handleLogout}
-								aria-label="Logout"
-							>
-								<button
-									class="group block w-full rounded-lg py-2 text-sm leading-7 text-primary hover:bg-tertiary/20 dark:text-white dark:hover:bg-tertiary/5"
-									aria-label="Logout"
-								>
-									<div class="flex items-center gap-2 font-semibold">
-										<Icon
-											icon="mdi-logout"
-											class="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1"
-										/>
-										<div>Logout</div>
-									</div>
-								</button>
-							</form>
-
-							<DarkMode />
-						</div>
-					</li>
-				</ul>
-			</nav>
-		</div>
-	</div>
-
-	<div class={isDesktopSidebarOpen ? 'lg:pl-72' : 'lg:pl-0'}>
+	<div class={(isDesktopSidebarOpen || isMobileSidebarOpen) ? 'lg:pl-72' : 'lg:pl-0'}>
 		<div class="sticky top-0 z-40 flex h-16 shrink-0 items-center px-8">
 			<button
 				type="button"

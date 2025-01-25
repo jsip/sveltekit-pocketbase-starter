@@ -1,8 +1,7 @@
-import { loginRedirectIfInvalidAuth } from '$lib/middleware/auth';
 import { createInstance } from '$lib/pocketbase';
 import type { Handle } from '@sveltejs/kit';
 
-export const handle: Handle = async ({ event, resolve }) => {
+export const handle: Handle = async ({ event, resolve }): Promise<Response> => {
 	const pb = createInstance();
 
 	pb.authStore.loadFromCookie(event.request.headers.get('cookie') || '');
@@ -18,7 +17,16 @@ export const handle: Handle = async ({ event, resolve }) => {
 	event.locals.pb = pb;
 	event.locals.user = pb.authStore.model;
 
-	loginRedirectIfInvalidAuth(event.locals);
+	if (event.url.pathname.startsWith('/my/')) {
+		if (!pb.authStore.isValid) {
+			return new Response(null, {
+				status: 303,
+				headers: {
+					location: '/auth/login'
+				}
+			});
+		}
+	}
 
 	const response = await resolve(event);
 
