@@ -1,12 +1,9 @@
 import { error, fail } from '@sveltejs/kit';
 import { updatePasswordSchema } from '$lib/types/user_schemas';
 import { validateData } from '$lib/utils/utils';
-import { loginRedirectIfInvalidAuth } from '$lib/middleware/auth';
 import { API } from '$lib/server/client';
 
-export const load = ({ locals }) => {
-	loginRedirectIfInvalidAuth(locals);
-};
+export const load = ({ locals }) => {};
 
 export const actions = {
 	updatePassword: async ({ request, locals }) => {

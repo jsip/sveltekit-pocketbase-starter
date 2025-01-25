@@ -1,11 +1,8 @@
-import { loginRedirectIfInvalidAuth } from '$lib/middleware/auth';
 import { API } from '$lib/server/client';
 import { validateRecord } from '$lib/utils/records';
 import { error, fail } from '@sveltejs/kit';
 
 export const load = async ({ locals }) => {
-	loginRedirectIfInvalidAuth(locals);
-
 	const api = new API(locals.pb);
 
 	return {};

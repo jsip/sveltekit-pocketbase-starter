@@ -3,12 +3,9 @@ import type { PageServerLoad, Actions } from './$types';
 import { updateProfileSchema } from '$lib/types/user_schemas';
 import { validateData } from '$lib/utils/utils';
 import { serialize } from 'object-to-formdata';
-import { loginRedirectIfInvalidAuth } from '$lib/middleware/auth';
 import { API } from '$lib/server/client';
 
-export const load: PageServerLoad = ({ locals }) => {
-	loginRedirectIfInvalidAuth(locals);
-};
+export const load: PageServerLoad = ({ locals }) => {};
 
 export const actions: Actions = {
 	updateProfile: async ({ request, locals }) => {

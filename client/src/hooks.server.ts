@@ -1,3 +1,4 @@
+import { loginRedirectIfInvalidAuth } from '$lib/middleware/auth';
 import { createInstance } from '$lib/pocketbase';
 import type { Handle } from '@sveltejs/kit';
 
@@ -16,6 +17,8 @@ export const handle: Handle = async ({ event, resolve }) => {
 
 	event.locals.pb = pb;
 	event.locals.user = pb.authStore.model;
+
+	loginRedirectIfInvalidAuth(event.locals);
 
 	const response = await resolve(event);
 
