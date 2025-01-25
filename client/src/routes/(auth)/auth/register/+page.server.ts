@@ -35,6 +35,6 @@ export const actions = {
 			throw error(500, 'Something went wrong');
 		}
 
-		throw redirect(303, '/');
+		throw redirect(303, '/my/home');
 	}
 };
