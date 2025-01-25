@@ -15,14 +15,15 @@ export const actions = {
 			});
 		}
 
-		const username = generateUsername(formData.email);
+		const email = formData.email;
+		const username = generateUsername(email);
 
 		try {
 			const api = new API(locals.pb);
 			await api.createUser(username, formData.email, formData.password, formData.passwordConfirm);
-			// await api.validateUserEmail(user.email);
+			await api.validateUserEmail(email);
 
-			await api.login(formData.email, formData.password);
+			await api.login(email, formData.password);
 
 			if (!api.isAuthValid()) {
 				locals.pb.authStore.clear();
